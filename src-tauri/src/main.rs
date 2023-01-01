@@ -12,6 +12,19 @@ fn main() {
     #[cfg(target_os = "macos")]
     let builder = builder.menu(menu::menu());
 
+    let builder = builder.setup(|app| {
+        if let Ok(matches) = app.get_cli_matches() {
+            for (k, v) in matches.args {
+                #[allow(clippy::single_match)]
+                match k.as_str() {
+                    "proxy-server" => {},
+                    _ => {},
+                }
+            }
+        };
+        Ok(())
+    });
+
     builder
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

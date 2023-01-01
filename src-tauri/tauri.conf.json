@@ -10,6 +10,14 @@
     "beforeBuildCommand": "cd cinny && npm run build"
   },
   "tauri": {
+    "cli": {
+      "args": [
+        {
+          "name": "proxy-server",
+          "takesValue": true
+        }
+      ]
+    },
     "bundle": {
       "active": true,
       "targets": "all",
